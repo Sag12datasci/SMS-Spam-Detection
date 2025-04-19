@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>SMS Spam Detector</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-submit">Analyze Message</button>
+</form>
+
+{% if result %}
+<div class="result {% if result == 'SPAM' %}spam{% else %}ham{% endif %}">
+    <h3>Result: {{ result }}</h3>
+    <p class="confidence">Confidence: {{ confidence }}</p>
+    {% if message %}
+    <p>Analyzed message: "{{ message }}"</p>
+    {% endif %}
+</div>
+{% endif %}
+
+<div class="examples">
+    <h3>Sample Messages to Try:</h3>
+    <ul>
+        <li>CONGRATULATIONS! You've won a $1000 gift card!</li>
+        <li>Hey, can we meet at the coffee shop at 3pm?</li>
+        <li>Your order #1234 has been shipped.</li>
+    </ul>
+</div>
+{% endblock %}
