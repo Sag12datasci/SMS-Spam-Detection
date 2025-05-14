@@ -1,9 +1,14 @@
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 from analyze import load_and_preprocess_data
+import pathlib
+
+BASE_DIR=pathlib.path(__file__).parent
+
+DATASET_PATH=BASE_DIR / 'spam.csv'
 
 # Filepath to the dataset
-DATASET_PATH = r"c:\Users\User\Downloads\SMS-Spam-Detection\Ml_EG_INtership_project\spam.csv"
+
 
 # Load and preprocess data
 X_train, X_test, y_train, y_test, vectorizer = load_and_preprocess_data(DATASET_PATH)
