@@ -143,7 +143,10 @@ except KeyboardInterrupt:
 while True:
     raw = input("Enter a message to classify (or type 'exit' to quit): ")
     user_input = ' '.join(raw.strip().split()) 
-    if user_input.lower() == 'exit':
+    if not raw:
+        print("Empty input. Please enter a message.")
+        continue
+    elif user_input.lower() == 'exit':
         break
     user_vec = vectorizer.transform([user_input]) # Transform the user input using the same vectorizer
     prediction = clf.predict(user_vec)
