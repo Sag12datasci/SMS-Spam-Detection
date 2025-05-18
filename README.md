@@ -13,6 +13,7 @@ SMS-Spam-Detection/
 │   ├── confusion_matrix.png
 │   ├── roc_curve.png
 │   ├── feature_importance.png
+│   └── length_dist.png
 │  
 │
 └── django_spam_detector/  # Web Interface
